@@ -13,7 +13,8 @@ public abstract class MEMonitorableBlockEntity extends BlockEntity {
 
     public MEMonitorableBlockEntity(BlockEntityType<?> type, BlockPos pos, BlockState state) {
         super(type, pos, state);
-        this.gridNode = GridHelper.INSTANCE.createManagedNode(this, (node, machine) -> {});
+        // Виправлено: використовується статичний метод замість INSTANCE
+        this.gridNode = GridHelper.createManagedNode(this, (node, machine) -> {});
     }
 
     public IGridNode getGridNode() {

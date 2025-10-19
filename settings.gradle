@@ -1,16 +1,27 @@
 pluginManagement {
     repositories {
-        maven {
-            url 'https://maven.minecraftforge.net/'
-        }
-        maven {
-            name = 'ParchmentMC'
-            url = 'https://maven.parchmentmc.org'
-        }
         gradlePluginPortal()
+        mavenCentral()
+        maven { url = "https://maven.minecraftforge.net" }
+        maven { url = "https://maven.parchmentmc.org" }
+        maven { url = "https://modmaven.dev" }         // AE2
+        maven { url = "https://maven.blakesmods.com" } // Extended Crafting / Cucumber
     }
 }
 
-plugins {
-    id 'org.gradle.toolchains.foojay-resolver-convention' version '0.8.0'
+dependencyResolutionManagement {
+    // дозволяємо проєктним репам (і не блокуємо репи плагінів FG/Librarian)
+    repositoriesMode.set(RepositoriesMode.PREFER_PROJECT)
+
+    repositories {
+        mavenCentral()
+        gradlePluginPortal()
+        maven { url = "https://maven.minecraftforge.net" }
+        maven { url = "https://maven.parchmentmc.org" }
+        maven { url = "https://modmaven.dev" }
+        maven { url = "https://maven.blakesmods.com" }
+        maven { url = "https://libraries.minecraft.net" }
+    }
 }
+
+rootProject.name = "Test"
